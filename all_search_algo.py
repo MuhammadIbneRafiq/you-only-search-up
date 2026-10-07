@@ -13,11 +13,17 @@ class RankBiserial:
     U is the number of combinations where between distance > within distance.
     """
 
-    def __init__(self, Y, MIN_COV):
+    def __init__(self, Y, MIN_COV=0.01):
             self.D = cdist(Y, Y)
             self.rowsum = self.D.sum(1)
+            self.N = len(self.D)
             self.MIN_COV = MIN_COV
             self.cache = {}
+
+    def _score(self, within, rowsum_m, n):
+        beta = within / (n * (n - 1))
+        alpha = (rowsum_m - within) / (n * (self.N - n))
+        return alpha / (beta + 1)
     
     def __call__(self, m):
         key = m.tobytes()
@@ -33,6 +39,11 @@ class RankBiserial:
                 self.cache[key] = alpha / (beta + 1)
         return self.cache[key]
 
+    def batch(self, M):
+        n = M.sum(1)
+        within = ((M @ self.D) * M).sum(1)
+        return self._score(within, M @ self.rowsum, n)
+
 import numpy as np
 from scipy.spatial.distance import cdist
 from scipy.stats import mannwhitneyu
@@ -41,7 +52,7 @@ from scipy.stats import mannwhitneyu
 class _CachedMeasure:
     """Shared caching and coverage check. Subclasses implement compute(m)."""
 
-    def __init__(self, MIN_COV):
+    def __init__(self, MIN_COV=0.01):
         self.MIN_COV = MIN_COV
         self.cache = {}
 
@@ -59,12 +70,6 @@ class _CachedMeasure:
         raise NotImplementedError
 
 
-def _ratio_score(within, rowsum_m, n, N):
-    beta = within / (n * (n - 1))
-    alpha = (rowsum_m - within) / (n * (N - n))
-    return alpha / (beta + 1)
-
-
 class Coverage(_CachedMeasure):
     """Fraction of all series that fall in the subgroup: n / N."""
 
@@ -77,7 +82,7 @@ class Lift(_CachedMeasure):
     mean pairwise distance over all series / mean pairwise distance within s.
     Lift > 1 means series in s are more alike than random pairs."""
 
-    def __init__(self, D, MIN_COV):
+    def __init__(self, D, MIN_COV=0.01):
         super().__init__(MIN_COV)
         self.D = D
         N = len(D)
@@ -90,32 +95,33 @@ class Lift(_CachedMeasure):
 
 
 class PermutationPValue(_CachedMeasure):
-    """Permutation p-value for the ratio score: the probability that a random subset of the same size n scores at least as high as s.
-    The null distribution depends only on n, so it is computed once per size and reused across all subgroups of that size."""
-    def __init__(self, D, MIN_COV, R=999, seed=0):
-        super().__init__(MIN_COV)
-        self.D = D
-        self.rowsum = D.sum(1)
+    """Permutation p-value for any quality object: the share of random subsets of the same size scoring at least as high as s."""
+    def __init__(self, quality, R=999, seed=0):
+        self.quality = quality
         self.R = R
         self.rng = np.random.default_rng(seed)
         self.null_cache = {}
+        self.cache = {}
 
     def _null(self, n):
         if n not in self.null_cache:
-            N = len(self.D)
+            N = self.quality.N
             idx = self.rng.random((self.R, N)).argsort(axis=1)[:, :n]
             M = np.zeros((self.R, N))
             np.put_along_axis(M, idx, 1.0, axis=1)
-            within = ((M @ self.D) * M).sum(1)
-            self.null_cache[n] = _ratio_score(within, M @ self.rowsum, n, N)
+            self.null_cache[n] = self.quality.batch(M)
         return self.null_cache[n]
 
-    def compute(self, m):
-        n, N = m.sum(), len(m)
-        within = (self.D @ m)[m].sum()
-        obs = _ratio_score(within, self.rowsum[m].sum(), n, N)
-        null = self._null(n)
-        return (1 + (null >= obs).sum()) / (self.R + 1)
+    def __call__(self, m):
+        key = m.tobytes()
+        if key not in self.cache:
+            obs = self.quality(m)
+            if obs is None:
+                self.cache[key] = None   # same validity rules as the quality measure
+            else:
+                null = self._null(int(m.sum()))
+                self.cache[key] = (1 + (null >= obs).sum()) / (self.R + 1)
+        return self.cache[key]
     
 def mask_of(A, desc):
     mask = np.ones(len(A), dtype=bool)
