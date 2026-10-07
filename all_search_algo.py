@@ -32,6 +32,90 @@ class RankBiserial:
                 alpha = (self.rowsum[m].sum() - within) / (n * (len(m) - n))
                 self.cache[key] = alpha / (beta + 1)
         return self.cache[key]
+
+import numpy as np
+from scipy.spatial.distance import cdist
+from scipy.stats import mannwhitneyu
+
+
+class _CachedMeasure:
+    """Shared caching and coverage check. Subclasses implement compute(m)."""
+
+    def __init__(self, MIN_COV):
+        self.MIN_COV = MIN_COV
+        self.cache = {}
+
+    def _valid(self, m):
+        n = m.sum()
+        return max(2, self.MIN_COV * len(m)) <= n < len(m)
+
+    def __call__(self, m):
+        key = m.tobytes()
+        if key not in self.cache:
+            self.cache[key] = self.compute(m) if self._valid(m) else None
+        return self.cache[key]
+
+    def compute(self, m):
+        raise NotImplementedError
+
+
+def _ratio_score(within, rowsum_m, n, N):
+    beta = within / (n * (n - 1))
+    alpha = (rowsum_m - within) / (n * (N - n))
+    return alpha / (beta + 1)
+
+
+class Coverage(_CachedMeasure):
+    """Fraction of all series that fall in the subgroup: n / N."""
+
+    def compute(self, m):
+        return m.sum() / len(m)
+
+
+class Lift(_CachedMeasure):
+    """How much more homogeneous the subgroup is than the dataset as a whole:
+    mean pairwise distance over all series / mean pairwise distance within s.
+    Lift > 1 means series in s are more alike than random pairs."""
+
+    def __init__(self, D, MIN_COV):
+        super().__init__(MIN_COV)
+        self.D = D
+        N = len(D)
+        self.overall = D.sum() / (N * (N - 1))
+
+    def compute(self, m):
+        n = m.sum()
+        within = (self.D @ m)[m].sum()
+        return self.overall / (within / (n * (n - 1)))
+
+
+class PermutationPValue(_CachedMeasure):
+    """Permutation p-value for the ratio score: the probability that a random subset of the same size n scores at least as high as s.
+    The null distribution depends only on n, so it is computed once per size and reused across all subgroups of that size."""
+    def __init__(self, D, MIN_COV, R=999, seed=0):
+        super().__init__(MIN_COV)
+        self.D = D
+        self.rowsum = D.sum(1)
+        self.R = R
+        self.rng = np.random.default_rng(seed)
+        self.null_cache = {}
+
+    def _null(self, n):
+        if n not in self.null_cache:
+            N = len(self.D)
+            idx = self.rng.random((self.R, N)).argsort(axis=1)[:, :n]
+            M = np.zeros((self.R, N))
+            np.put_along_axis(M, idx, 1.0, axis=1)
+            within = ((M @ self.D) * M).sum(1)
+            self.null_cache[n] = _ratio_score(within, M @ self.rowsum, n, N)
+        return self.null_cache[n]
+
+    def compute(self, m):
+        n, N = m.sum(), len(m)
+        within = (self.D @ m)[m].sum()
+        obs = _ratio_score(within, self.rowsum[m].sum(), n, N)
+        null = self._null(n)
+        return (1 + (null >= obs).sum()) / (self.R + 1)
     
 def mask_of(A, desc):
     mask = np.ones(len(A), dtype=bool)
