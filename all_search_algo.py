@@ -1,3 +1,9 @@
+import numpy as np
+import pandas as pd
+from scipy.spatial.distance import cdist
+import itertools
+
+
 class RankBiserial:
     """
     Compares between-distance and within-distance with within meaning both series are in subgroup s,
@@ -7,16 +13,17 @@ class RankBiserial:
     U is the number of combinations where between distance > within distance.
     """
 
-    def __init__(self, Y):
+    def __init__(self, Y, MIN_COV):
             self.D = cdist(Y, Y)
             self.rowsum = self.D.sum(1)
+            self.MIN_COV = MIN_COV
             self.cache = {}
     
     def __call__(self, m):
         key = m.tobytes()
         if key not in self.cache:
             n = m.sum()
-            if n < max(2, MIN_COV * len(m)) or n == len(m):
+            if n < max(2, self.MIN_COV * len(m)) or n == len(m):
                 self.cache[key] = None
             else:
                 s = self.D @ m
@@ -49,7 +56,7 @@ def describe(desc, names):
 
 
 # SEARCHES
-def beam_search(A, qual, K=K, w=W, D=D_MAX, positive_only=True):
+def beam_search(A, qual, K, w, D, positive_only=True):
     # D = max depth
     # w = beam width
     # A = binary matrix of descriptors (rows = series, cols = attribute==value)
@@ -94,7 +101,7 @@ def beam_search(A, qual, K=K, w=W, D=D_MAX, positive_only=True):
     return top, len(seen)
 
 
-def bottom_up_search(A, qual):   
+def bottom_up_search(A, qual, D):   
     # The distance measure in the quality measure given
     D = qual.D
 
@@ -111,7 +118,7 @@ def bottom_up_search(A, qual):
     for i, j in pairs:
         shared = [(a, A[i, a]) for a in range(A.shape[1]) if A[i, a] == A[j, a]]
 
-        for d in range(1, D_MAX + 1):
+        for d in range(1, D + 1):
             #if desc in seen:
             #    continue
             #seen.add(desc)
