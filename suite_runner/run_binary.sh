@@ -5,7 +5,7 @@ CONDA="/c/Users/wifi stuff/anaconda3"
 export PATH="$CONDA:$CONDA/Library/bin:$CONDA/Scripts:$PATH"
 LOG=suite_runner/binary.log
 "$CONDA/python.exe" suite_runner/make_binary.py full
-for ds in favorita walmart m5; do
+for ds in m5; do
   echo "=== $ds start $(date '+%a %H:%M:%S')" >> "$LOG"
   "$CONDA/python.exe" suite_runner/run_inprocess.py "binary_$ds.ipynb" "$LOG" && echo "=== $ds finished $(date '+%a %H:%M:%S')" >> "$LOG" || echo "=== $ds FAILED $(date '+%a %H:%M:%S')" >> "$LOG"
 done
