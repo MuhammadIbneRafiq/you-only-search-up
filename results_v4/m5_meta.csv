@@ -1,0 +1,2 @@
+dataset,N,T,period,n_descriptors,n_conditions,store_level_share,n_stores,noise_rel_std,autocorr_lag1,seasonality_r2,intermittency,sigma_rate,sigma_season,sigma_vol
+m5,6581,1238,day,9,41,0.1111111111111111,10,0.8922255259294543,0.14640886772930814,3.55409916322099e-05,0.31287860804553375,0.03959156628897491,0.00923603744071565,0.05406909136980947

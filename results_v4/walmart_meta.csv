@@ -1,0 +1,2 @@
+dataset,N,T,period,n_descriptors,n_conditions,store_level_share,n_stores,noise_rel_std,autocorr_lag1,seasonality_r2,intermittency,sigma_rate,sigma_season,sigma_vol
+walmart,2566,143,week,15,62,1.0,45,0.1359928461401886,0.4412770300653541,0.018866181108473077,5.450512075609503e-06,0.04677591093420861,0.01325966664577933,0.12246161688095714

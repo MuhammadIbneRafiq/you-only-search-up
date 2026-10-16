@@ -1,0 +1,31 @@
+group,comparison,found_A,found_B,tasks_only_A,tasks_only_B,McNemar_p,tasks
+all three,fixed BUS vs old BUS,0.367,0.133,81,5,0.0,324
+all three,fixed pool vs old pool,0.392,0.302,42,13,0.0001,324
+all three,fixed BUS + local vs BS w=10,0.417,0.448,8,18,0.0755,324
+all three,fixed pool vs BS w=10,0.392,0.448,12,30,0.0079,324
+all three,fixed BUS vs BS w=10,0.367,0.448,9,35,0.0001,324
+walmart,fixed BUS vs old BUS,0.306,0.12,24,4,0.0002,108
+walmart,fixed pool vs old pool,0.333,0.25,14,5,0.0636,108
+walmart,fixed BUS + local vs BS w=10,0.398,0.463,3,10,0.0923,108
+walmart,fixed pool vs BS w=10,0.333,0.463,5,19,0.0066,108
+walmart,fixed BUS vs BS w=10,0.306,0.463,3,20,0.0005,108
+favorita,fixed BUS vs old BUS,0.509,0.185,35,0,0.0,108
+favorita,fixed pool vs old pool,0.519,0.444,13,5,0.0963,108
+favorita,fixed BUS + local vs BS w=10,0.519,0.546,4,7,0.5488,108
+favorita,fixed pool vs BS w=10,0.519,0.546,5,8,0.5811,108
+favorita,fixed BUS vs BS w=10,0.509,0.546,6,10,0.4545,108
+m5,fixed BUS vs old BUS,0.287,0.093,22,1,0.0,108
+m5,fixed pool vs old pool,0.324,0.213,15,3,0.0075,108
+m5,fixed BUS + local vs BS w=10,0.333,0.333,1,1,1.0,108
+m5,fixed pool vs BS w=10,0.324,0.333,2,3,1.0,108
+m5,fixed BUS vs BS w=10,0.287,0.333,0,5,0.0625,108
+2-condition descriptions,fixed BUS vs old BUS,0.364,0.123,42,3,0.0,162
+2-condition descriptions,fixed pool vs old pool,0.377,0.241,30,8,0.0005,162
+2-condition descriptions,fixed BUS + local vs BS w=10,0.414,0.481,1,12,0.0034,162
+2-condition descriptions,fixed pool vs BS w=10,0.377,0.481,2,19,0.0002,162
+2-condition descriptions,fixed BUS vs BS w=10,0.364,0.481,2,21,0.0001,162
+3-condition descriptions,fixed BUS vs old BUS,0.37,0.142,39,2,0.0,162
+3-condition descriptions,fixed pool vs old pool,0.407,0.364,12,5,0.1435,162
+3-condition descriptions,fixed BUS + local vs BS w=10,0.42,0.414,7,6,1.0,162
+3-condition descriptions,fixed pool vs BS w=10,0.407,0.414,10,11,1.0,162
+3-condition descriptions,fixed BUS vs BS w=10,0.37,0.414,7,14,0.1892,162

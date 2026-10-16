@@ -1,0 +1,61 @@
+group,method,found,BS w=10,wins,losses,p,n
+all,BS w=50,0.469,0.469,4,4,1.0,480
+all,BUS snn-comp,0.558,0.469,61,18,0.0,480
+all,BUS snn-comp +local,0.515,0.469,29,7,0.0003,480
+all,BUS→BS pool snn-comp,0.481,0.469,41,35,0.5666,480
+lits=3,BS w=50,0.933,0.917,2,0,0.5,120
+lits=3,BUS snn-comp,0.842,0.917,6,15,0.0784,120
+lits=3,BUS snn-comp +local,0.917,0.917,5,5,1.0,120
+lits=3,BUS→BS pool snn-comp,0.708,0.917,3,28,0.0,120
+lits=4,BS w=50,0.575,0.583,0,1,1.0,120
+lits=4,BUS snn-comp,0.658,0.583,12,3,0.0352,120
+lits=4,BUS snn-comp +local,0.658,0.583,11,2,0.0225,120
+lits=4,BUS→BS pool snn-comp,0.575,0.583,5,6,1.0,120
+lits=5,BS w=50,0.333,0.35,1,3,0.625,120
+lits=5,BUS snn-comp,0.55,0.35,24,0,0.0,120
+lits=5,BUS snn-comp +local,0.4,0.35,6,0,0.0312,120
+lits=5,BUS→BS pool snn-comp,0.5,0.35,18,0,0.0,120
+lits=6,BS w=50,0.033,0.025,1,0,1.0,120
+lits=6,BUS snn-comp,0.183,0.025,19,0,0.0,120
+lits=6,BUS snn-comp +local,0.083,0.025,7,0,0.0156,120
+lits=6,BUS→BS pool snn-comp,0.142,0.025,15,1,0.0005,120
+k=100,BS w=50,0.508,0.512,2,3,1.0,240
+k=100,BUS snn-comp,0.575,0.512,25,10,0.0167,240
+k=100,BUS snn-comp +local,0.538,0.512,9,3,0.146,240
+k=100,BUS→BS pool snn-comp,0.517,0.512,16,15,1.0,240
+k=400,BS w=50,0.429,0.425,2,1,1.0,240
+k=400,BUS snn-comp,0.542,0.425,36,8,0.0,240
+k=400,BUS snn-comp +local,0.492,0.425,20,4,0.0015,240
+k=400,BUS→BS pool snn-comp,0.446,0.425,25,20,0.5515,240
+"k=100, lits=3",BS w=50,0.967,0.95,1,0,1.0,60
+"k=100, lits=3",BUS snn-comp,0.85,0.95,2,8,0.1094,60
+"k=100, lits=3",BUS snn-comp +local,0.95,0.95,2,2,1.0,60
+"k=100, lits=3",BUS→BS pool snn-comp,0.767,0.95,0,11,0.001,60
+"k=100, lits=4",BS w=50,0.617,0.633,0,1,1.0,60
+"k=100, lits=4",BUS snn-comp,0.65,0.633,3,2,1.0,60
+"k=100, lits=4",BUS snn-comp +local,0.667,0.633,3,1,0.625,60
+"k=100, lits=4",BUS→BS pool snn-comp,0.633,0.633,4,4,1.0,60
+"k=100, lits=5",BS w=50,0.4,0.433,0,2,0.5,60
+"k=100, lits=5",BUS snn-comp,0.617,0.433,11,0,0.001,60
+"k=100, lits=5",BUS snn-comp +local,0.45,0.433,1,0,1.0,60
+"k=100, lits=5",BUS→BS pool snn-comp,0.533,0.433,6,0,0.0312,60
+"k=100, lits=6",BS w=50,0.05,0.033,1,0,1.0,60
+"k=100, lits=6",BUS snn-comp,0.183,0.033,9,0,0.0039,60
+"k=100, lits=6",BUS snn-comp +local,0.083,0.033,3,0,0.25,60
+"k=100, lits=6",BUS→BS pool snn-comp,0.133,0.033,6,0,0.0312,60
+"k=400, lits=3",BS w=50,0.9,0.883,1,0,1.0,60
+"k=400, lits=3",BUS snn-comp,0.833,0.883,4,7,0.5488,60
+"k=400, lits=3",BUS snn-comp +local,0.883,0.883,3,3,1.0,60
+"k=400, lits=3",BUS→BS pool snn-comp,0.65,0.883,3,17,0.0026,60
+"k=400, lits=4",BS w=50,0.533,0.533,0,0,1.0,60
+"k=400, lits=4",BUS snn-comp,0.667,0.533,9,1,0.0215,60
+"k=400, lits=4",BUS snn-comp +local,0.65,0.533,8,1,0.0391,60
+"k=400, lits=4",BUS→BS pool snn-comp,0.517,0.533,1,2,1.0,60
+"k=400, lits=5",BS w=50,0.267,0.267,1,1,1.0,60
+"k=400, lits=5",BUS snn-comp,0.483,0.267,13,0,0.0002,60
+"k=400, lits=5",BUS snn-comp +local,0.35,0.267,5,0,0.0625,60
+"k=400, lits=5",BUS→BS pool snn-comp,0.467,0.267,12,0,0.0005,60
+"k=400, lits=6",BS w=50,0.017,0.017,0,0,1.0,60
+"k=400, lits=6",BUS snn-comp,0.183,0.017,10,0,0.002,60
+"k=400, lits=6",BUS snn-comp +local,0.083,0.017,4,0,0.125,60
+"k=400, lits=6",BUS→BS pool snn-comp,0.15,0.017,9,1,0.0215,60

@@ -1,5 +1,10 @@
-*.csv
+# *.csv
 *.zip
 # results*
 *log
 archive*
+final_sales_dataset.csv
+final_walmart_data.csv
+Walmart
+Store
+M5

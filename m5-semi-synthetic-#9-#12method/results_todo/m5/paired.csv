@@ -1,0 +1,121 @@
+vs,group,method,tasks,found,found_ref,wins,losses,p,alpha,verdict
+BS w=10,all,BS w=10 +local,800,0.325,0.255,59,3,1.724922288337538e-14,0.05,better than BS w=10
+BS w=10,all,BUS snn,800,0.4525,0.255,173,15,3.112369787591056e-35,0.05,better than BS w=10
+BS w=10,all,BUS snn +local,800,0.4325,0.255,151,9,2.1895920451771055e-34,0.05,better than BS w=10
+BS w=10,all,BUS snn +local per level,800,0.43625,0.255,157,12,2.1964532601679834e-33,0.05,better than BS w=10
+BS w=10,all,BUS→BS pool snn,800,0.39125,0.255,129,20,1.040493049587592e-20,0.05,better than BS w=10
+BS w=10,all,BUS→BS pool snn +local,800,0.4125,0.255,133,7,2.717864140919989e-31,0.05,better than BS w=10
+BS w=10,lits=2,BS w=10 +local,160,0.7875,0.7375,8,0,0.0078125,0.01,better than BS w=10
+BS w=10,lits=2,BUS snn,160,0.8125,0.7375,21,9,0.042773945257067694,0.01,suggestive (not after correction)
+BS w=10,lits=2,BUS snn +local,160,0.85625,0.7375,25,6,0.0008779102936387062,0.01,better than BS w=10
+BS w=10,lits=2,BUS snn +local per level,160,0.81875,0.7375,22,9,0.029449373483657837,0.01,suggestive (not after correction)
+BS w=10,lits=2,BUS→BS pool snn,160,0.78125,0.7375,17,10,0.24778856337070465,0.01,no significant difference
+BS w=10,lits=2,BUS→BS pool snn +local,160,0.8375,0.7375,21,5,0.002493917942047119,0.01,better than BS w=10
+BS w=10,lits=4,BS w=10 +local,160,0.4875,0.225,42,0,4.547473508864641e-13,0.01,better than BS w=10
+BS w=10,lits=4,BUS snn,160,0.7875,0.225,90,0,1.6155871338926322e-27,0.01,better than BS w=10
+BS w=10,lits=4,BUS snn +local,160,0.74375,0.225,83,0,2.0679515313825692e-25,0.01,better than BS w=10
+BS w=10,lits=4,BUS snn +local per level,160,0.78125,0.225,89,0,3.2311742677852644e-27,0.01,better than BS w=10
+BS w=10,lits=4,BUS→BS pool snn,160,0.66875,0.225,72,1,1.5670109524204556e-20,0.01,better than BS w=10
+BS w=10,lits=4,BUS→BS pool snn +local,160,0.70625,0.225,77,0,1.3234889800848443e-23,0.01,better than BS w=10
+BS w=10,lits=6,BS w=10 +local,160,0.2875,0.2375,8,0,0.0078125,0.01,better than BS w=10
+BS w=10,lits=6,BUS snn,160,0.55625,0.2375,52,1,1.199040866595169e-14,0.01,better than BS w=10
+BS w=10,lits=6,BUS snn +local,160,0.475,0.2375,38,0,7.275957614183426e-12,0.01,better than BS w=10
+BS w=10,lits=6,BUS snn +local per level,160,0.49375,0.2375,42,1,1.000444171950221e-11,0.01,better than BS w=10
+BS w=10,lits=6,BUS→BS pool snn,160,0.45,0.2375,37,3,1.946500560734421e-08,0.01,better than BS w=10
+BS w=10,lits=6,BUS→BS pool snn +local,160,0.43125,0.2375,31,0,9.313225746154785e-10,0.01,better than BS w=10
+BS w=10,lits=8,BS w=10 +local,160,0.0625,0.06875,1,2,1.0,0.01,no significant difference
+BS w=10,lits=8,BUS snn,160,0.1,0.06875,9,4,0.266845703125,0.01,no significant difference
+BS w=10,lits=8,BUS snn +local,160,0.08125,0.06875,4,2,0.6875,0.01,no significant difference
+BS w=10,lits=8,BUS snn +local per level,160,0.0875,0.06875,4,1,0.375,0.01,no significant difference
+BS w=10,lits=8,BUS→BS pool snn,160,0.05,0.06875,2,5,0.453125,0.01,no significant difference
+BS w=10,lits=8,BUS→BS pool snn +local,160,0.08125,0.06875,3,1,0.625,0.01,no significant difference
+BS w=10,lits=10,BS w=10 +local,160,0.0,0.00625,0,1,1.0,0.01,no significant difference
+BS w=10,lits=10,BUS snn,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BS w=10,lits=10,BUS snn +local,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BS w=10,lits=10,BUS snn +local per level,160,0.0,0.00625,0,1,1.0,0.01,no significant difference
+BS w=10,lits=10,BUS→BS pool snn,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BS w=10,lits=10,BUS→BS pool snn +local,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BS w=10,k=20,BS w=10 +local,200,0.455,0.385,16,2,0.001312255859375,0.0125,better than BS w=10
+BS w=10,k=20,BUS snn,200,0.49,0.385,27,6,0.0003240634687244892,0.0125,better than BS w=10
+BS w=10,k=20,BUS snn +local,200,0.49,0.385,25,4,0.00010371580719947815,0.0125,better than BS w=10
+BS w=10,k=20,BUS snn +local per level,200,0.5,0.385,27,4,3.39532271027565e-05,0.0125,better than BS w=10
+BS w=10,k=20,BUS→BS pool snn,200,0.46,0.385,19,4,0.002599477767944336,0.0125,better than BS w=10
+BS w=10,k=20,BUS→BS pool snn +local,200,0.47,0.385,20,3,0.00048828125,0.0125,better than BS w=10
+BS w=10,k=50,BS w=10 +local,200,0.36,0.305,12,1,0.00341796875,0.0125,better than BS w=10
+BS w=10,k=50,BUS snn,200,0.48,0.305,40,5,7.878384167270269e-08,0.0125,better than BS w=10
+BS w=10,k=50,BUS snn +local,200,0.465,0.305,34,2,1.941225491464138e-08,0.0125,better than BS w=10
+BS w=10,k=50,BUS snn +local per level,200,0.46,0.305,35,4,3.353161446284503e-07,0.0125,better than BS w=10
+BS w=10,k=50,BUS→BS pool snn,200,0.4,0.305,26,7,0.0013187271542847157,0.0125,better than BS w=10
+BS w=10,k=50,BUS→BS pool snn +local,200,0.445,0.305,31,3,7.660128176212311e-07,0.0125,better than BS w=10
+BS w=10,k=100,BS w=10 +local,200,0.305,0.215,18,0,7.62939453125e-06,0.0125,better than BS w=10
+BS w=10,k=100,BUS snn,200,0.44,0.215,48,3,1.9674928353197174e-11,0.0125,better than BS w=10
+BS w=10,k=100,BUS snn +local,200,0.43,0.215,45,2,1.6044054973463062e-11,0.0125,better than BS w=10
+BS w=10,k=100,BUS snn +local per level,200,0.425,0.215,45,3,1.312585595769633e-10,0.0125,better than BS w=10
+BS w=10,k=100,BUS→BS pool snn,200,0.395,0.215,41,5,4.405936238072172e-08,0.0125,better than BS w=10
+BS w=10,k=100,BUS→BS pool snn +local,200,0.41,0.215,40,1,3.8198777474462986e-11,0.0125,better than BS w=10
+BS w=10,k=400,BS w=10 +local,200,0.18,0.115,13,0,0.000244140625,0.0125,better than BS w=10
+BS w=10,k=400,BUS snn,200,0.4,0.115,58,1,2.0816681711721685e-16,0.0125,better than BS w=10
+BS w=10,k=400,BUS snn +local,200,0.345,0.115,47,1,3.481659405224491e-13,0.0125,better than BS w=10
+BS w=10,k=400,BUS snn +local per level,200,0.36,0.115,50,1,4.618527782440651e-14,0.0125,better than BS w=10
+BS w=10,k=400,BUS→BS pool snn,200,0.31,0.115,43,4,2.781192165457469e-09,0.0125,better than BS w=10
+BS w=10,k=400,BUS→BS pool snn +local,200,0.325,0.115,42,0,4.547473508864641e-13,0.0125,better than BS w=10
+BUS snn,all,BS w=10,800,0.255,0.4525,15,173,3.112369787591056e-35,0.05,worse than BUS snn
+BUS snn,all,BS w=10 +local,800,0.325,0.4525,24,126,6.68983977234623e-18,0.05,worse than BUS snn
+BUS snn,all,BUS snn +local,800,0.4325,0.4525,30,46,0.08464609267083598,0.05,no significant difference
+BUS snn,all,BUS snn +local per level,800,0.43625,0.4525,29,42,0.1539127693264563,0.05,no significant difference
+BUS snn,all,BUS→BS pool snn,800,0.39125,0.4525,13,62,8.396008067237178e-09,0.05,worse than BUS snn
+BUS snn,all,BUS→BS pool snn +local,800,0.4125,0.4525,23,55,0.00037779201420676267,0.05,worse than BUS snn
+BUS snn,lits=2,BS w=10,160,0.7375,0.8125,9,21,0.042773945257067694,0.01,suggestive (not after correction)
+BUS snn,lits=2,BS w=10 +local,160,0.7875,0.8125,14,18,0.5966148958541453,0.01,no significant difference
+BUS snn,lits=2,BUS snn +local,160,0.85625,0.8125,7,0,0.015625,0.01,suggestive (not after correction)
+BUS snn,lits=2,BUS snn +local per level,160,0.81875,0.8125,1,0,1.0,0.01,no significant difference
+BUS snn,lits=2,BUS→BS pool snn,160,0.78125,0.8125,2,7,0.1796875,0.01,no significant difference
+BUS snn,lits=2,BUS→BS pool snn +local,160,0.8375,0.8125,7,3,0.34375,0.01,no significant difference
+BUS snn,lits=4,BS w=10,160,0.225,0.7875,0,90,1.6155871338926322e-27,0.01,worse than BUS snn
+BUS snn,lits=4,BS w=10 +local,160,0.4875,0.7875,4,52,1.1008055578187737e-11,0.01,worse than BUS snn
+BUS snn,lits=4,BUS snn +local,160,0.74375,0.7875,7,14,0.18924713134765625,0.01,no significant difference
+BUS snn,lits=4,BUS snn +local per level,160,0.78125,0.7875,10,11,1.0,0.01,no significant difference
+BUS snn,lits=4,BUS→BS pool snn,160,0.66875,0.7875,2,21,6.604194641113281e-05,0.01,worse than BUS snn
+BUS snn,lits=4,BUS→BS pool snn +local,160,0.70625,0.7875,6,19,0.01463329792022705,0.01,suggestive (not after correction)
+BUS snn,lits=6,BS w=10,160,0.2375,0.55625,1,52,1.199040866595169e-14,0.01,worse than BUS snn
+BUS snn,lits=6,BS w=10 +local,160,0.2875,0.55625,2,45,1.6044054973463062e-11,0.01,worse than BUS snn
+BUS snn,lits=6,BUS snn +local,160,0.475,0.55625,10,23,0.03508203336969018,0.01,suggestive (not after correction)
+BUS snn,lits=6,BUS snn +local per level,160,0.49375,0.55625,13,23,0.13249816396273675,0.01,no significant difference
+BUS snn,lits=6,BUS→BS pool snn,160,0.45,0.55625,5,22,0.0015137195587158203,0.01,worse than BUS snn
+BUS snn,lits=6,BUS→BS pool snn +local,160,0.43125,0.55625,5,25,0.0003249142318964005,0.01,worse than BUS snn
+BUS snn,lits=8,BS w=10,160,0.06875,0.1,4,9,0.266845703125,0.01,no significant difference
+BUS snn,lits=8,BS w=10 +local,160,0.0625,0.1,4,10,0.1795654296875,0.01,no significant difference
+BUS snn,lits=8,BUS snn +local,160,0.08125,0.1,5,8,0.5810546875,0.01,no significant difference
+BUS snn,lits=8,BUS snn +local per level,160,0.0875,0.1,5,7,0.7744140625,0.01,no significant difference
+BUS snn,lits=8,BUS→BS pool snn,160,0.05,0.1,3,11,0.057373046875,0.01,no significant difference
+BUS snn,lits=8,BUS→BS pool snn +local,160,0.08125,0.1,4,7,0.548828125,0.01,no significant difference
+BUS snn,lits=10,BS w=10,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BUS snn,lits=10,BS w=10 +local,160,0.0,0.00625,0,1,1.0,0.01,no significant difference
+BUS snn,lits=10,BUS snn +local,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BUS snn,lits=10,BUS snn +local per level,160,0.0,0.00625,0,1,1.0,0.01,no significant difference
+BUS snn,lits=10,BUS→BS pool snn,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BUS snn,lits=10,BUS→BS pool snn +local,160,0.00625,0.00625,1,1,1.0,0.01,no significant difference
+BUS snn,k=20,BS w=10,200,0.385,0.49,6,27,0.0003240634687244892,0.0125,worse than BUS snn
+BUS snn,k=20,BS w=10 +local,200,0.455,0.49,7,14,0.18924713134765625,0.0125,no significant difference
+BUS snn,k=20,BUS snn +local,200,0.49,0.49,9,9,1.0,0.0125,no significant difference
+BUS snn,k=20,BUS snn +local per level,200,0.5,0.49,11,9,0.8238029479980469,0.0125,no significant difference
+BUS snn,k=20,BUS→BS pool snn,200,0.46,0.49,5,11,0.210113525390625,0.0125,no significant difference
+BUS snn,k=20,BUS→BS pool snn +local,200,0.47,0.49,6,10,0.454498291015625,0.0125,no significant difference
+BUS snn,k=50,BS w=10,200,0.305,0.48,5,40,7.878384167270269e-08,0.0125,worse than BUS snn
+BUS snn,k=50,BS w=10 +local,200,0.36,0.48,8,32,0.0001821658297558315,0.0125,worse than BUS snn
+BUS snn,k=50,BUS snn +local,200,0.465,0.48,6,9,0.6072387695312499,0.0125,no significant difference
+BUS snn,k=50,BUS snn +local per level,200,0.46,0.48,5,9,0.4239501953125,0.0125,no significant difference
+BUS snn,k=50,BUS→BS pool snn,200,0.4,0.48,1,17,0.00014495849609375,0.0125,worse than BUS snn
+BUS snn,k=50,BUS→BS pool snn +local,200,0.445,0.48,5,12,0.143463134765625,0.0125,no significant difference
+BUS snn,k=100,BS w=10,200,0.215,0.44,3,48,1.9674928353197174e-11,0.0125,worse than BUS snn
+BUS snn,k=100,BS w=10 +local,200,0.305,0.44,7,34,2.532080361561384e-05,0.0125,worse than BUS snn
+BUS snn,k=100,BUS snn +local,200,0.43,0.44,8,10,0.8145294189453125,0.0125,no significant difference
+BUS snn,k=100,BUS snn +local per level,200,0.425,0.44,7,10,0.629058837890625,0.0125,no significant difference
+BUS snn,k=100,BUS→BS pool snn,200,0.395,0.44,7,16,0.0931396484375,0.0125,no significant difference
+BUS snn,k=100,BUS→BS pool snn +local,200,0.41,0.44,8,14,0.28627872467041016,0.0125,no significant difference
+BUS snn,k=400,BS w=10,200,0.115,0.4,1,58,2.0816681711721685e-16,0.0125,worse than BUS snn
+BUS snn,k=400,BS w=10 +local,200,0.18,0.4,2,46,8.363087999896379e-12,0.0125,worse than BUS snn
+BUS snn,k=400,BUS snn +local,200,0.345,0.4,7,18,0.043285250663757324,0.0125,suggestive (not after correction)
+BUS snn,k=400,BUS snn +local per level,200,0.36,0.4,6,14,0.11531829833984375,0.0125,no significant difference
+BUS snn,k=400,BUS→BS pool snn,200,0.31,0.4,0,18,7.62939453125e-06,0.0125,worse than BUS snn
+BUS snn,k=400,BUS→BS pool snn +local,200,0.325,0.4,4,19,0.002599477767944336,0.0125,worse than BUS snn
